@@ -1,10 +1,14 @@
 import os
 
-os.getcwd()
+pick_direct = input("Please type in which directory you would like to save this file: ")
+
+selected_direct = os.path.normpath(pick_direct)
 
 import json
 
-name = input("Please enter your first and last name: ")
+filename = input("\nPlease name the file where you would like the information saved: ")
+
+name = input("\nPlease enter your first and last name: ")
 name = name.title()
 
 address = input("\nPlease enter your address: ")
@@ -14,7 +18,7 @@ phone = input("\nPlease enter your phone number: ")
 
 commas = name.split(), address.split(), phone.split()
 
-filename = 'test.json'
+filename = f"{filename}.json"
 with open(filename, 'w') as f:
     json.dump(commas, f)
 
